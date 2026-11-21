@@ -1,0 +1,26 @@
+星域闪避 · 素材与工程说明
+
+一、背景照片（公有领域 / CC0，均取自 Wikimedia Commons）
+- bg-nebula.jpg     猎户座大星云（Hubble 2006 拼接图）· Public domain · NASA/ESA
+- bg-starburst.jpg  NGC 4449 星暴星系（Hubble）· Public domain · NASA/ESA
+- bg-eagle.png      鹰状星云 M16 · CC0
+- bg-earth.jpg      阿波罗 17 号拍摄的地球 · Public domain · NASA
+
+二、音乐（GeneralUser GS 音色渲染，可循环）
+- bgm.wav   34.4s 平静段：112 BPM，A 小调，Am-F-C-G；方波主旋律 + 锯齿琶音 + 柔和铺底 + 指弹贝斯 + 鼓组
+- bgm2.wav  29.2s 战斗段：134 BPM，四拍底鼓 + 16 分琶音 + pick 贝斯；第 3 波起与平静段交叉淡入淡出
+
+三、音效（GeneralUser GS 采样）
+- sfx-laser.wav  激光（Lasergun）
+- sfx-hit.wav    撞击爆炸（Explosion，受击截 1.0s / 死亡截 1.8s）
+- sfx-pickup.wav 拾取（Windchime，截前 0.6s；擦弹时倍速 1.9x 做短促提示）
+- sfx-wave.wav   换波（Burst Noise，0.75s 带淡出）
+
+音色库：GeneralUser GS License v2.0（可免费用于私有与商业作品）。
+可编辑工程：~/.anyaudio/projects/prj_jp3kwj46
+  - 剪辑台里可改音符、换音色、调每条音频的电平；改完只需重新导出，不用重生成其它轨
+
+四、代码结构（star-dodge.html，单文件）
+- TUNE 对象：所有手感/难度/音量参数都在文件顶部的调参区
+- 固定步长更新（1/120s）+ 粒子/子弹对象池 + DPR 上限 2
+- 背景：照片按屏幕比例裁剪后烘焙到离屏画布，波次切换用双缓冲交叉淡入
